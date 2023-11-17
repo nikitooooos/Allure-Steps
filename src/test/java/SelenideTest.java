@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
@@ -14,13 +15,15 @@ public class SelenideTest {
 
         open("https://github.com");
 
-        $(".header-search-input").click();
-        $(".header-search-input").sendKeys("nikitooooos/Files ");
-        $(".header-search-input").submit();
+        $(".search-input-container").click();
+        $("#query-builder-test").click();
+        $("#query-builder-test").sendKeys("nikitooooos/Files ");
+        $("#query-builder-test").submit();
 
-        $(linkText("nikitooooos/Files ")).click();
+        $(linkText("nikitooooos/Files")).click();
         $("#issues-tab").click();
-        $(withText("#80")).should(Condition.exist);
+        $(withText("Welcome to issues!")).should(Condition.exist);
     }
+
 
 }
