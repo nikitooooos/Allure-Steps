@@ -17,13 +17,13 @@ public class SelenideTest {
 
         $(".search-input-container").click();
         $("#query-builder-test").click();
-        $("#query-builder-test").sendKeys("nikitooooos/Files ");
+        $("#query-builder-test").sendKeys("nikitooooos/Files");
         $("#query-builder-test").submit();
 
         $(linkText("nikitooooos/Files")).click();
+
         $("#issues-tab").click();
+
         $(withText("Welcome to issues!")).should(Condition.exist);
     }
-
-
 }
